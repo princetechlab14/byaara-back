@@ -18,7 +18,9 @@ const allowedOrigins = [
   'http://localhost:7009',
   'http://localhost:5013',
   'http://localhost:5046',
+  'http://localhost:5100',
   'https://android.web-gamer.com',
+  'https://byaara.com',
 ];
 
 const app = express();
@@ -85,7 +87,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5100;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
