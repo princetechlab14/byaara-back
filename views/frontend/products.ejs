@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partial/head") %>
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <%- include("./partial/header") %>
+        <main class="flex-grow">
+            <section class="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12">
+                <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+                    <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
+                        <div>
+                            <h2 class="mt-3 text-2xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+                                Products</h2>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <label for="sorting"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sort</label>
+                            <select id="sorting" name="sorting"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="newest">Newest</option>
+                                <option value="price_asc">Increasing price</option>
+                                <option value="price_desc">Decreasing price</option>
+                                <option value="reviews">No. reviews</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 products-list">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include("./partial/footer") %>
+            <script>
+                function fetchProducts(sortValue) {
+                    $.ajax({
+                        url: `/api/products?sort=${sortValue}`,
+                        method: "GET",
+                        dataType: "json",
+                        success: function (response) {
+                            let productGrid = $(".products-list");
+                            productGrid.empty();
+
+                            if (!response.products.length) {
+                                productGrid.append(`<p class="text-gray-500">No products found.</p>`);
+                                return;
+                            }
+
+                            response.products.forEach(p => {
+                                productGrid.append(`
+                                <div class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800">
+                                    <div class="h-56 w-full">
+                                        <a href="/product/${p.sku}">
+                                            <img class="mx-auto h-full" src="${p.main_image}" alt="${p.title}" />
+                                        </a>
+                                    </div>
+                                    <div class="pt-6">
+                                        <a href="/product/${p.sku}" class="text-lg font-semibold leading-tight text-gray-900 dark:text-white">${p.title}</a>
+                                        <div class="mt-4 gap-4">
+                                            <span class="mr-2 text-sm line-through">RS. ${p.regular_price}</span>
+                                            <span class="text-md">From RS. ${p.sale_price}</span>
+                                        </div>
+                                    </div>
+                                </div>`
+                                );
+                            });
+                        },
+                        error: function () {
+                            console.error("Failed to load products");
+                        }
+                    });
+                }
+
+                $(document).ready(function () {
+                    fetchProducts($("#sorting").val());
+                    $("#sorting").on("change", function () {
+                        let sortValue = $(this).val();
+                        fetchProducts(sortValue);
+                    });
+                });
+            </script>
+</body>
+
+</html>

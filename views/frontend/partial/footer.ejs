@@ -1,0 +1,462 @@
+<footer class="border-t-1 border-gray-200 my-3 p-2 mt-16">
+    <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-4 md:mt-0 mx-auto max-w-screen-xl">
+        <li>
+            <p
+                class="block py-2 pr-8 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0">
+                © <span id="year"></span>, Byaara.</p>
+        </li>
+        <li>
+            <a href="/privacy-policy"
+                class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0"
+                aria-current="page">Privacy policy</a>
+        </li>
+        <li>
+            <a href="/term-service"
+                class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0 ">Terms
+                of service</a>
+        </li>
+        <li>
+            <a href="/shipping-policy"
+                class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0 ">Shipping
+                policy</a>
+        </li>
+        <li>
+            <a href="/contact-information"
+                class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0 ">Contact
+                information</a>
+        </li>
+    </ul>
+</footer>
+
+<!-- Modal -->
+<dialog id="crud-modal" class="backdrop:bg-black/50 rounded-lg p-0 w-full max-w-lg mx-auto my-auto">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-800 overflow-hidden">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between border-b border-gray-300 p-4">
+            <h3 class="text-lg font-bold text-gray-900">Byaara</h3>
+            <button onclick="document.getElementById('crud-modal').close()"
+                class="text-gray-500 hover:text-red-500 text-4xl leading-none">&times;</button>
+        </div>
+
+        <!-- Product Section -->
+        <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between">
+                <div class="flex items-start space-x-3">
+                    <img src="https://cdn.shopify.com/s/files/1/0930/5335/4277/files/61G-tTElbCL._SX522.jpg?v=1751007755"
+                        alt="Product Image" class="w-12 h-12 object-contain" id="product_image">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 hover:underline cursor-pointer" id="product_title">
+                            Adivasi Hair Oil Original</h4>
+                        <p class="text-sm text-gray-600" id="product_qty">Quantity : 1</p>
+                    </div>
+                </div>
+                <span class="text-lg font-semibold text-gray-800" id="product_price">Rs. 699.00</span>
+            </div>
+
+            <!-- Summary -->
+            <div class="border border-gray-200 rounded-lg overflow-hidden text-sm bg-gray-100">
+                <div class="flex justify-between px-4 py-2 text-lg">
+                    <span>Subtotal</span>
+                    <span class="font-semibold" id="subtotal_price">Rs. 699.00</span>
+                </div>
+                <div class="flex justify-between px-4 py-2 text-lg">
+                    <span>Shipping</span>
+                    <span class="font-semibold" id="shipping_price">Free</span>
+                </div>
+                <div class="flex justify-between px-4 py-2 text-lg font-bold">
+                    <span>Total</span>
+                    <span id="total_price">Rs. 699.00</span>
+                </div>
+            </div>
+
+            <!-- Shipping Form -->
+            <form class="space-y-3 mt-4" action="/order-store" method="post">
+                <h4 class="text-center font-bold text-gray-900 mt-8 text-2xl">Enter your shipping address</h4>
+                <input type="hidden" name="product_id" id="product_id">
+                <input type="hidden" name="quantity" id="quantity">
+
+                <!-- Full name -->
+                <div>
+                    <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full
+                        name</label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input type="text" id="full_name" name="full_name"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Full name">
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="phone_no" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                        number <span class="text-red-500">*</span></label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        <input type="text" id="phone_no" name="phone_no"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Phone number">
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address
+                        <span class="text-red-500">*</span></label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        <input type="text" id="address" name="address"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Address">
+                    </div>
+                </div>
+
+                <!-- Landmark -->
+                <div>
+                    <label for="landmark" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Landmark
+                        <span class="text-red-500">*</span></label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-location-arrow"></i>
+                        </span>
+                        <input type="text" id="landmark" name="landmark"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Nearby school, hospital, shop">
+                    </div>
+                </div>
+
+                <!-- Pincode -->
+                <div>
+                    <label for="pincode" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pincode
+                        <span class="text-red-500">*</span></label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-hashtag"></i>
+                        </span>
+                        <input type="text" id="pincode" name="pincode"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Pincode">
+                    </div>
+                </div>
+
+                <!-- State -->
+                <div>
+                    <label for="state" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State
+                        <span class="text-red-500">*</span></label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <i class="fas fa-hashtag"></i>
+                        </span>
+                        <input type="text" id="state" name="state"
+                            class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="State">
+                    </div>
+                </div>
+
+                <!-- City -->
+                <div>
+                    <div>
+                        <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City
+                            <span class="text-red-500">*</span></label>
+                        <div class="flex">
+                            <span
+                                class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                                <i class="fas fa-city"></i>
+                            </span>
+                            <input type="text" id="city" name="city"
+                                class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="City">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="relative inline-flex items-center group md:my-3 my-2 w-full">
+                        <div
+                            class="absolute inset-0 opacity-60 transition-all duration-1000 rounded-xl filter group-hover:opacity-100 group-hover:duration-200">
+                        </div>
+                        <button type="submit"
+                            class="group relative flex items-center text-left text-base rounded-xl bg-orange-500 md:px-8 md:py-4 px-3 py-1 font-semibold text-white transition-all duration-200 hover:bg-orange-500 hover:-translate-y-0.5 border-4 border-black cursor-pointer w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                                class="w-8 h-8 mx-4 flex-shrink-0 fill-white">
+                                <path
+                                    d="M0 96C0 60.7 28.7 32 64 32h288c35.3 0 64 28.7 64 64v32h50.7c17 0 33.3 6.7 45.3 18.7L557.3 192c12 12 18.7 28.3 18.7 45.3V384c0 35.3-28.7 64-64 64h-3.3c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64H236.7c-10.4 36.9-44.4 64-84.7 64s-74.2-27.1-84.7-64H64c-35.3 0-64-28.7-64-64V96zm512 192v-50.7l-45.3-45.3H416v96h96zM192 424a40 40 0 1 0-80 0 40 40 0 1 0 80 0zm232 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" />
+                            </svg>
+                            <span class="flex flex-col">
+                                <span>COMPLETE ORDER - RS.699.00</span>
+                                <span class="text-sm opacity-80">
+                                    3-5 Days | 100% Free Shipping
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</dialog>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    $(document).ready(function () {
+        $("#sidebar-toggle").on("click", function () {
+            $("#mobile-menu").toggleClass("hidden");
+        });
+
+        $(".increment").click(function () {
+            let input = $(this).siblings(".quantity");
+            let currentVal = parseInt(input.val()) || 1;
+            input.val(currentVal + 1);
+        });
+
+        $(".decrement").click(function () {
+            let input = $(this).siblings(".quantity");
+            let currentVal = parseInt(input.val()) || 1;
+            if (currentVal > 1) {
+                input.val(currentVal - 1);
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("sortDropdownButton1");
+        const dropdown = document.getElementById("dropdownSort1");
+
+        button?.addEventListener("click", function () {
+            dropdown.classList.toggle("hidden");
+        });
+
+        const crudModal = document.getElementById("crud-modal");
+        crudModal.addEventListener("click", function (event) {
+            const dialogContent = crudModal.querySelector(".relative");
+            if (!dialogContent.contains(event.target)) {
+                crudModal.close();
+            }
+        });
+
+        const counters = document.querySelectorAll(".counter-input");
+
+        counters?.forEach((input) => {
+            const container = input.parentElement;
+            const incrementBtn = container.querySelector(".increment-button");
+            const decrementBtn = container.querySelector(".decrement-button");
+
+            incrementBtn?.addEventListener("click", () => {
+                let value = parseInt(input.value) || 1;
+                input.value = value + 1;
+            });
+
+            decrementBtn?.addEventListener("click", () => {
+                let value = parseInt(input.value) || 1;
+                if (value > 1) {
+                    input.value = value - 1;
+                }
+            });
+
+            input?.addEventListener("input", () => {
+                let value = parseInt(input.value);
+                if (isNaN(value) || value < 1) {
+                    input.value = 1;
+                }
+            });
+        });
+    });
+
+    function cart() {
+        return {
+            cartItems: [
+                {
+                    name: "Laptop",
+                    model: "XPS 13",
+                    hsCode: "847130",
+                    quantity: 1,
+                    weight: 2.5,
+                    perPieceRate: 999.99,
+                    totalPrice: 999.99,
+                    color: "Silver",
+                    deliveryMethod: "Air",
+                    description: "A powerful and lightweight laptop with excellent performance.",
+                    isEditingDescription: false,
+                    originalDescription: "",
+                    showDescription: true,
+                    image: "/cart-1.jpg"
+                },
+                {
+                    name: "Smartphone",
+                    model: "iPhone 14",
+                    hsCode: "851712",
+                    quantity: 2,
+                    weight: 0.5,
+                    perPieceRate: 799.99,
+                    totalPrice: 1599.98,
+                    color: "Black",
+                    deliveryMethod: "Ship",
+                    description: "The latest iPhone with advanced camera and processing power.",
+                    isEditingDescription: false,
+                    originalDescription: "",
+                    showDescription: false,
+                    image: "/cart-1.jpg"
+                }
+            ],
+            shippingMethod: "standard",
+            promoCode: "",
+            promoMessage: "",
+            promoValid: false,
+            discount: 0,
+
+            removeItem(index) {
+                if (confirm('Are you sure you want to remove this item?')) {
+                    this.cartItems.splice(index, 1);
+                }
+            },
+
+            clearCart() {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    this.cartItems = [];
+                }
+            },
+
+            incrementQuantity(index) {
+                this.cartItems[index].quantity++;
+                this.updateTotalPrice(index);
+            },
+
+            decrementQuantity(index) {
+                if (this.cartItems[index].quantity > 1) {
+                    this.cartItems[index].quantity--;
+                    this.updateTotalPrice(index);
+                }
+            },
+
+            updateTotalPrice(index) {
+                const item = this.cartItems[index];
+                item.totalPrice = item.perPieceRate * item.quantity;
+            },
+
+            get subtotal() {
+                return this.cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
+            },
+
+            get total() {
+                return this.subtotal - this.discount;
+            }
+        };
+    }
+
+    function buyNow(product) {
+        // Set product image, title, and quantity
+        document.getElementById('product_image').src = product.image;
+        document.getElementById('product_title').textContent = product.title;
+        document.getElementById('product_qty').textContent = "Quantity : " + product.quantity;
+        document.getElementById('product_price').textContent = "Rs. " + product.price;
+
+        // Calculate subtotal
+        let subtotal = product.price * product.quantity;
+        let shipping = 0;
+        let total = subtotal + shipping;
+
+        // Update price fields
+        document.getElementById('subtotal_price').textContent = "Rs. " + subtotal.toFixed(2);
+        document.getElementById('shipping_price').textContent = shipping === 0 ? "Free" : "Rs. " + shipping.toFixed(2);
+        document.getElementById('total_price').textContent = "Rs. " + total.toFixed(2);
+
+        // Show the modal
+        document.getElementById('crud-modal').showModal();
+
+        // Fill hidden fields in the form
+        document.getElementById('product_id').value = product.id;
+        document.getElementById('quantity').value = product.quantity;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('#crud-modal form');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Remove old errors
+            form.querySelectorAll('.error-msg').forEach(el => el.remove());
+
+            // Collect values directly
+            const payload = {
+                product_id: form.product_id.value,
+                quantity: parseInt(form.quantity.value, 10),
+                full_name: form.full_name.value,
+                phone_no: form.phone_no.value,
+                address: form.address.value,
+                landmark: form.landmark.value,
+                pincode: form.pincode.value,
+                state: form.state.value,
+                city: form.city.value
+            };
+
+            try {
+                const res = await fetch('/api/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+
+                if (!res.ok || data.success === false) {
+                    // Clear old error messages
+                    form.querySelectorAll('.error-msg').forEach(el => el.remove());
+
+                    data.errors.forEach(err => {
+                        const fieldName = err.path && err.path[0] ? err.path[0] : null;
+                        const input = form.querySelector(`[name="${fieldName}"]`);
+
+                        if (input) {
+                            const errorEl = document.createElement('div');
+                            errorEl.className = 'error-msg text-red-500 text-sm mt-1';
+                            errorEl.textContent = err.message;
+
+                            // Append after the container wrapping the input (flex div in your case)
+                            const wrapper = input.closest('div'); // This will get the "flex" div
+                            if (wrapper && wrapper.parentElement) {
+                                wrapper.parentElement.appendChild(errorEl); // Adds it after the flex div but inside the outer form-group div
+                            }
+                        }
+                    });
+                } else {
+                    // Redirect to thank-you page
+                    window.location.href = '/thank-you';
+                }
+            } catch (err) {
+                console.error('Order submission failed:', err);
+                alert('An error occurred while placing the order.');
+            }
+        });
+    });
+
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
+    function setQuantity(qty) {
+        const qtyInput = document.querySelector('.quantity');
+        qtyInput.value = qty;
+
+        // Reset all buttons to unselected
+        document.querySelectorAll('.pack-btn').forEach(b => {
+            b.classList.remove('bg-black', 'text-white');
+            b.classList.add('bg-transparent', 'text-gray-700', 'hover:bg-gray-900', 'hover:text-white');
+        });
+
+    }
+    document.querySelector('.pack-btn')?.classList.add('bg-black', 'text-white');
+</script>

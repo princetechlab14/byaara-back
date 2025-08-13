@@ -1,0 +1,85 @@
+<div class="border-b-1 border-gray-200">
+    <p class="text-center my-2">Welcome to our store</p>
+</div>
+
+<nav class="bg-white px-4 lg:px-6 py-2.5 border-b-1 border-gray-200">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <div class="hidden justify-between items-center w-full md:flex md:w-auto">
+            <ul class="flex flex-col mt-4 font-medium md:flex-row md:space-x-4 md:mt-0">
+                <li>
+                    <a href="/"
+                        class="block py-2 pr-4 pl-3 text-gray-900 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0"
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="/products"
+                        class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0">Products</a>
+                </li>
+                <li>
+                    <a href="/contact"
+                        class="block py-2 pr-4 pl-3 text-gray-500 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 lg:p-0">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="/" class="flex items-center">
+            <img src="/hair_oil_logo-07_1.avif"
+                class="mr-3 h-6 sm:h-16" alt="Logo" />
+        </a>
+
+        <div class="flex items-center gap-3">
+            <a href="#" class="text-gray-400 font-medium rounded-lg text-sm focus:outline-none">
+                <svg viewBox="0 0 640 640" class="size-5 ">
+                    <path
+                        d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" />
+                </svg>
+            </a>
+            <a href="/login" class="text-gray-400 font-medium rounded-lg text-sm focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="size-5">
+                    <path
+                        d="M240 192C240 147.8 275.8 112 320 112C364.2 112 400 147.8 400 192C400 236.2 364.2 272 320 272C275.8 272 240 236.2 240 192zM448 192C448 121.3 390.7 64 320 64C249.3 64 192 121.3 192 192C192 262.7 249.3 320 320 320C390.7 320 448 262.7 448 192zM144 544C144 473.3 201.3 416 272 416L368 416C438.7 416 496 473.3 496 544L496 552C496 565.3 506.7 576 520 576C533.3 576 544 565.3 544 552L544 544C544 446.8 465.2 368 368 368L272 368C174.8 368 96 446.8 96 544L96 552C96 565.3 106.7 576 120 576C133.3 576 144 565.3 144 552L144 544z" />
+                </svg>
+            </a>
+            <!-- <a href="/cart" class="text-gray-400 font-medium rounded-lg text-sm focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="size-5">
+                    <path
+                        d="M256 144C256 108.7 284.7 80 320 80C355.3 80 384 108.7 384 144L384 192L256 192L256 144zM208 192L144 192C117.5 192 96 213.5 96 240L96 448C96 501 139 544 192 544L448 544C501 544 544 501 544 448L544 240C544 213.5 522.5 192 496 192L432 192L432 144C432 82.1 381.9 32 320 32C258.1 32 208 82.1 208 144L208 192zM232 240C245.3 240 256 250.7 256 264C256 277.3 245.3 288 232 288C218.7 288 208 277.3 208 264C208 250.7 218.7 240 232 240zM384 264C384 250.7 394.7 240 408 240C421.3 240 432 250.7 432 264C432 277.3 421.3 288 408 288C394.7 288 384 277.3 384 264z" />
+                </svg>
+            </a> -->
+            <button data-collapse-toggle="mobile-menu" type="button"
+                class="inline-flex items-center text-sm text-gray-700 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
+                aria-controls="mobile-menu" aria-expanded="false" id="sidebar-toggle">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hidden md:hidden justify-between items-center w-full" id="mobile-menu">
+            <ul
+                class="flex flex-col mt-4 font-medium md:flex-row space-x-2 md:space-x-8 md:mt-0 bg-gray-100 rounded-lg">
+                <li>
+                    <a href="#"
+                        class="block py-2 pr-4 pl-3 text-gray-900 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0"
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 pr-4 pl-3 text-gray-500 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0">Catelog</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 pr-4 pl-3 text-gray-500 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
